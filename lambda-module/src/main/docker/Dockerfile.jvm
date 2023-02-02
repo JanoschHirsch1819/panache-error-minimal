@@ -1,0 +1,6 @@
+FROM public.ecr.aws/lambda/java:11
+
+ADD target/lib/ /var/task/lib/
+ADD target/lambda-module-1.0.0-SNAPSHOT-runner.jar /var/task/lib/lambda-runner.jar
+
+CMD ["io.quarkus.amazon.lambda.runtime.QuarkusStreamHandler::handleRequest"]
